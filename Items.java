@@ -2,102 +2,84 @@ package andres_masis_poo;
 
 public class Items {
 
+    // Atributos
     double precio;
     String categoria;
     String nombre;
     double precioVen;
+    boolean equipado;
 
-    public Items(final double precio, final String categoria, final String nombre) {
+    
+    double vida;  //Stat
+    double ataque;  //Stat
+    double defensa;  //Stat
+    double velocidad;  //Stat
+    double estilo;  //Stat
+    double magia;  //Stat
+    
+    
+
+    public Items(final double precio, final String categoria, final String nombre,
+            final double vida, final double ataque, final double defensa, final double velocidad,
+            final double estilo, final double magia) {
+        
+  
         this.precio = precio;
         this.categoria = categoria;
         this.nombre = nombre;
         this.precioVen = precio * 0.65;
+        this.equipado = false;
+        
+        this.vida = vida;
+        this.ataque = ataque;
+        this.defensa = defensa;
+        this.velocidad = velocidad;
+        this.estilo = estilo;
+        this. magia = magia;
     }
 
-    public void asignarStats() { // lo activa el metodo equipar de la clase personaje
-        final double lol;
-    }
 
-    public void quitarStats() { // lo activa el metodo equipar de la clase personaje
-        final double lol;
-    }
-
-    public String getNombre() {
-        System.out.println("Nombre: " + this.nombre);
-        return this.nombre;
-    }
-
-    public void getCategoria() {
-        System.out.println("Categoria: " + this.categoria);
-    }
-
-    public void getPrecio() {
-        System.out.println("Precio: " + this.precio);
-    }
-
-    public void setItems(final double precio, final String categoria, final String nombre) {
-        this.precio = precio;
-        this.categoria = categoria;
-        this.nombre = nombre;
+    public void setEquipado(boolean equipado) {
+        this.equipado = equipado;
     }
 }
+
+
+
+
 
 class Armas extends Items { // atributo opcional durabilidad
 
-    public Armas(final double precio, final String categoria, final String nombre) {
-        super(precio, categoria, nombre);
-    }
-
-    double daño;
-    String tipoArma;
-
-    public void setArma(final double daño, final String tipoArma) {
-        this.daño = daño;
-        this.tipoArma = tipoArma;
-    }
-
-    public void getArma() {
-        System.out.println("Daño: " + this.daño);
-        System.out.println("Tipo: " + this.tipoArma);
+    public Armas(final double precio, final String categoria, final String nombre,
+            final double vida, final double ataque, final double defensa, final double velocidad,
+            final double estilo, final double magia) {
+        
+        super(precio, categoria, nombre, vida, ataque, defensa, velocidad, estilo, magia);
     }
 
 }
 
+
+
 class Armadura extends Items { // atributo opcional durabilidad
-
-    public Armadura(final double precio, final String categoria, final String nombre) {
-        super(precio, categoria, nombre);
+    String tipo_armadura;
+    
+    public Armadura(final double precio, final String categoria, final String nombre,
+            final double vida, final double ataque, final double defensa, final double velocidad,
+            final double estilo, final double magia, final String tipo_armadura) {
+        
+        super(precio, categoria, nombre, vida, ataque, defensa, velocidad, estilo, magia);
+        this.tipo_armadura = tipo_armadura;
     }
-
-    double defensa;
-    String tipoArma;
-
-    public void setArm(final double defensa, final String tipoArma) {
-        this.defensa = defensa;
-        this.tipoArma = tipoArma;
-    }
-
-    public void getArmadura() {
-        System.out.println("Defensa: " + this.defensa);
-        System.out.println("Tipo: " + this.tipoArma);
-        System.out.println("Tipo: " + this.precioVen);
-    }
-
 }
 
 class Consumibles extends Items { // atributo opcional cantidad
 
-    public Consumibles(final double precio, final String categoria, final String nombre) {
-        super(precio, categoria, nombre);
+    public Consumibles(final double precio, final String categoria, final String nombre,
+            final double vida, final double ataque, final double defensa, final double velocidad,
+            final double estilo, final double magia) {
+        
+        super(precio, categoria, nombre, vida, ataque, defensa, velocidad, estilo, magia);
     }
-
-    String tipoConsu;
-
-    public void setCon(final String tipoConsu) {
-        this.tipoConsu = tipoConsu;
-    }
-
-    public void getCon() {
-        System.out.println("Tipo: " + this.tipoConsu);
-    }
+    
 }
