@@ -42,8 +42,11 @@ public class DatosApi {
         
         System.out.println("reviews: "+ reviewsNum +"\n");      // imprimimos
         
+        while (reviewsNum > 100){        
+            reviewsNum = reviewsNum/2;
+        }
        
-       this.listPrecio[i]= ((reviewsNum*2)/5)+105;
+       this.listPrecio[i]= ((reviewsNum*2)/5)+15;
        this.listReviews[i]= (reviewsNum/2)+13;
        }
     }
