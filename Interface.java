@@ -45,7 +45,9 @@ public class Interface extends javax.swing.JFrame {
         JButtonVender = new javax.swing.JButton();
         JButtonComprar = new javax.swing.JButton();
         JPanelTituloTienda = new javax.swing.JPanel();
+        JLabelTituloTienda = new javax.swing.JLabel();
         JPanelTituloInventario = new javax.swing.JPanel();
+        JLabelTituloInventario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JPanelTienda = new javax.swing.JPanel();
         JButtonTienda1 = new javax.swing.JButton();
@@ -53,8 +55,56 @@ public class Interface extends javax.swing.JFrame {
         JButtomTienda3 = new javax.swing.JButton();
         JButtonTienda4 = new javax.swing.JButton();
         JButtonTienda5 = new javax.swing.JButton();
+        JButtonTienda6 = new javax.swing.JButton();
+        JButtonTienda7 = new javax.swing.JButton();
+        JButtonTienda8 = new javax.swing.JButton();
+        JButtonTienda9 = new javax.swing.JButton();
+        JButtonTienda10 = new javax.swing.JButton();
+        JButtonTienda11 = new javax.swing.JButton();
+        JButtonTienda12 = new javax.swing.JButton();
+        JButtonTienda13 = new javax.swing.JButton();
+        JButtonTienda14 = new javax.swing.JButton();
+        JButtonTienda15 = new javax.swing.JButton();
+        JButtonTienda16 = new javax.swing.JButton();
+        JButtonTienda17 = new javax.swing.JButton();
+        JButtonTienda18 = new javax.swing.JButton();
+        JButtonTienda19 = new javax.swing.JButton();
+        JButtonTienda20 = new javax.swing.JButton();
+        JPanelStats = new javax.swing.JPanel();
+        JLabelTituloStats = new javax.swing.JLabel();
+        JLabelAtaque = new javax.swing.JLabel();
+        JLabelDefensa = new javax.swing.JLabel();
+        JLabelVida = new javax.swing.JLabel();
+        JLabelVelocidad = new javax.swing.JLabel();
+        JLabelEstilo = new javax.swing.JLabel();
+        JLabelMagia = new javax.swing.JLabel();
+        JLabelCoins = new javax.swing.JLabel();
+        JLabelDinero = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JPanelInventario = new javax.swing.JPanel();
+        JButtonInventario1 = new javax.swing.JButton();
+        JButtonInventario2 = new javax.swing.JButton();
+        JButtonInventario3 = new javax.swing.JButton();
+        JButtonInventario4 = new javax.swing.JButton();
+        JButtonInventario5 = new javax.swing.JButton();
+        JButtonInventario6 = new javax.swing.JButton();
+        JButtonInventario7 = new javax.swing.JButton();
+        JButtonInventario8 = new javax.swing.JButton();
+        JButtonInventario9 = new javax.swing.JButton();
+        JButtonInventario10 = new javax.swing.JButton();
+        JButtonInventario11 = new javax.swing.JButton();
+        JButtonInventario12 = new javax.swing.JButton();
+        JButtonInventario13 = new javax.swing.JButton();
+        JButtonInventario14 = new javax.swing.JButton();
+        JButtonInventario15 = new javax.swing.JButton();
+        JButtonInventario16 = new javax.swing.JButton();
+        JButtonInventario17 = new javax.swing.JButton();
+        JButtonInventario18 = new javax.swing.JButton();
+        JButtonInventario19 = new javax.swing.JButton();
+        JButtonInventario20 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         JButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_salir.png"))); // NOI18N
         JButtonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +115,7 @@ public class Interface extends javax.swing.JFrame {
 
         JButtonDesequipar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_desequipar.png"))); // NOI18N
 
-        JButtonEquipar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_desequipar.png"))); // NOI18N
+        JButtonEquipar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_equipar.png"))); // NOI18N
 
         JButtonVender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_vender.png"))); // NOI18N
 
@@ -76,29 +126,51 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        JPanelTituloTienda.setBackground(new java.awt.Color(18, 28, 23));
+
+        JLabelTituloTienda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/titulo_tienda.png"))); // NOI18N
+
         javax.swing.GroupLayout JPanelTituloTiendaLayout = new javax.swing.GroupLayout(JPanelTituloTienda);
         JPanelTituloTienda.setLayout(JPanelTituloTiendaLayout);
         JPanelTituloTiendaLayout.setHorizontalGroup(
             JPanelTituloTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(JPanelTituloTiendaLayout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addComponent(JLabelTituloTienda)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JPanelTituloTiendaLayout.setVerticalGroup(
             JPanelTituloTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addComponent(JLabelTituloTienda, javax.swing.GroupLayout.Alignment.TRAILING)
         );
+
+        JPanelTituloInventario.setBackground(new java.awt.Color(18, 28, 23));
+
+        JLabelTituloInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/titulo_Inventario.png"))); // NOI18N
 
         javax.swing.GroupLayout JPanelTituloInventarioLayout = new javax.swing.GroupLayout(JPanelTituloInventario);
         JPanelTituloInventario.setLayout(JPanelTituloInventarioLayout);
         JPanelTituloInventarioLayout.setHorizontalGroup(
             JPanelTituloInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelTituloInventarioLayout.createSequentialGroup()
+                .addContainerGap(161, Short.MAX_VALUE)
+                .addComponent(JLabelTituloInventario)
+                .addGap(139, 139, 139))
         );
         JPanelTituloInventarioLayout.setVerticalGroup(
             JPanelTituloInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelTituloInventarioLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JLabelTituloInventario))
         );
 
-        JButtonTienda1.setText("jButton1");
+        JPanelTienda.setBackground(new java.awt.Color(0, 0, 51));
+
+        JButtonTienda1.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda1.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda1.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda1.setText("Objeto 1");
+        JButtonTienda1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         JButtonTienda2.setText("jButton2");
 
@@ -108,18 +180,63 @@ public class Interface extends javax.swing.JFrame {
 
         JButtonTienda5.setText("jButton1");
 
+        JButtonTienda6.setText("jButton4");
+
+        JButtonTienda7.setText("jButton4");
+
+        JButtonTienda8.setText("jButton4");
+
+        JButtonTienda9.setText("jButton4");
+
+        JButtonTienda10.setText("jButton4");
+
+        JButtonTienda11.setText("jButton4");
+
+        JButtonTienda12.setText("jButton4");
+
+        JButtonTienda13.setText("jButton4");
+
+        JButtonTienda14.setText("jButton4");
+
+        JButtonTienda15.setText("jButton4");
+
+        JButtonTienda16.setText("jButton4");
+
+        JButtonTienda17.setText("jButton4");
+
+        JButtonTienda18.setText("jButton4");
+
+        JButtonTienda19.setText("jButton4");
+
+        JButtonTienda20.setText("jButton4");
+
         javax.swing.GroupLayout JPanelTiendaLayout = new javax.swing.GroupLayout(JPanelTienda);
         JPanelTienda.setLayout(JPanelTiendaLayout);
         JPanelTiendaLayout.setHorizontalGroup(
             JPanelTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelTiendaLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelTiendaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JPanelTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JButtonTienda1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
-                    .addComponent(JButtonTienda2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JButtomTienda3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JButtonTienda4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JButtonTienda5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(JPanelTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JButtonTienda20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtomTienda3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JButtonTienda12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         JPanelTiendaLayout.setVerticalGroup(
@@ -135,10 +252,252 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(JButtonTienda4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(JButtonTienda5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda10, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda11, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda12, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda13, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda14, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda15, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda16, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda17, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda18, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda19, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonTienda20, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(JPanelTienda);
+
+        JPanelStats.setBackground(new java.awt.Color(0, 0, 51));
+        JPanelStats.setBorder(javax.swing.BorderFactory.createMatteBorder(6, 6, 6, 6, new java.awt.Color(51, 51, 51)));
+
+        JLabelTituloStats.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/titulo_stats.png"))); // NOI18N
+
+        JLabelAtaque.setBackground(new java.awt.Color(51, 135, 255));
+        JLabelAtaque.setFont(new java.awt.Font("Old English Text MT", 0, 24)); // NOI18N
+        JLabelAtaque.setForeground(new java.awt.Color(255, 255, 255));
+        JLabelAtaque.setText("Ataque");
+        JLabelAtaque.setOpaque(true);
+
+        JLabelDefensa.setBackground(new java.awt.Color(51, 135, 255));
+        JLabelDefensa.setFont(new java.awt.Font("Old English Text MT", 0, 24)); // NOI18N
+        JLabelDefensa.setForeground(new java.awt.Color(255, 255, 255));
+        JLabelDefensa.setText("Defensa");
+        JLabelDefensa.setOpaque(true);
+
+        JLabelVida.setBackground(new java.awt.Color(51, 135, 255));
+        JLabelVida.setFont(new java.awt.Font("Old English Text MT", 0, 24)); // NOI18N
+        JLabelVida.setForeground(new java.awt.Color(255, 255, 255));
+        JLabelVida.setText("Vida");
+        JLabelVida.setOpaque(true);
+
+        JLabelVelocidad.setBackground(new java.awt.Color(51, 135, 255));
+        JLabelVelocidad.setFont(new java.awt.Font("Old English Text MT", 0, 24)); // NOI18N
+        JLabelVelocidad.setForeground(new java.awt.Color(255, 255, 255));
+        JLabelVelocidad.setText("Velocidad");
+        JLabelVelocidad.setOpaque(true);
+
+        JLabelEstilo.setBackground(new java.awt.Color(51, 135, 255));
+        JLabelEstilo.setFont(new java.awt.Font("Old English Text MT", 0, 24)); // NOI18N
+        JLabelEstilo.setForeground(new java.awt.Color(255, 255, 255));
+        JLabelEstilo.setText("Estilo");
+        JLabelEstilo.setOpaque(true);
+
+        JLabelMagia.setBackground(new java.awt.Color(51, 135, 255));
+        JLabelMagia.setFont(new java.awt.Font("Old English Text MT", 0, 24)); // NOI18N
+        JLabelMagia.setForeground(new java.awt.Color(255, 255, 255));
+        JLabelMagia.setText("Magia");
+        JLabelMagia.setOpaque(true);
+
+        javax.swing.GroupLayout JPanelStatsLayout = new javax.swing.GroupLayout(JPanelStats);
+        JPanelStats.setLayout(JPanelStatsLayout);
+        JPanelStatsLayout.setHorizontalGroup(
+            JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelStatsLayout.createSequentialGroup()
+                .addContainerGap(74, Short.MAX_VALUE)
+                .addComponent(JLabelTituloStats)
+                .addGap(66, 66, 66))
+            .addGroup(JPanelStatsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLabelAtaque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelDefensa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelVida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelVelocidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelEstilo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelMagia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        JPanelStatsLayout.setVerticalGroup(
+            JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelStatsLayout.createSequentialGroup()
+                .addComponent(JLabelTituloStats)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JLabelAtaque, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JLabelDefensa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JLabelVida, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JLabelVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JLabelEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JLabelMagia, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
+        );
+
+        JLabelCoins.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/monedas_oro.png"))); // NOI18N
+
+        JLabelDinero.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        JLabelDinero.setForeground(new java.awt.Color(255, 255, 255));
+        JLabelDinero.setText("3500");
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        JPanelInventario.setBackground(new java.awt.Color(0, 0, 51));
+
+        JButtonInventario1.setText("jButton1");
+
+        JButtonInventario2.setText("jButton2");
+
+        JButtonInventario3.setText("jButton3");
+        JButtonInventario3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario3ActionPerformed(evt);
+            }
+        });
+
+        JButtonInventario4.setText("jButton4");
+
+        JButtonInventario5.setText("jButton1");
+
+        JButtonInventario6.setText("jButton1");
+
+        JButtonInventario7.setText("jButton1");
+
+        JButtonInventario8.setText("jButton1");
+
+        JButtonInventario9.setText("jButton1");
+
+        JButtonInventario10.setText("jButton1");
+
+        JButtonInventario11.setText("jButton1");
+
+        JButtonInventario12.setText("jButton1");
+
+        JButtonInventario13.setText("jButton1");
+
+        JButtonInventario14.setText("jButton1");
+
+        JButtonInventario15.setText("jButton1");
+
+        JButtonInventario16.setText("jButton1");
+
+        JButtonInventario17.setText("jButton1");
+
+        JButtonInventario18.setText("jButton1");
+
+        JButtonInventario19.setText("jButton1");
+
+        JButtonInventario20.setText("jButton1");
+
+        javax.swing.GroupLayout JPanelInventarioLayout = new javax.swing.GroupLayout(JPanelInventario);
+        JPanelInventario.setLayout(JPanelInventarioLayout);
+        JPanelInventarioLayout.setHorizontalGroup(
+            JPanelInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelInventarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(JPanelInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(JButtonInventario20, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                    .addGroup(JPanelInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(JButtonInventario18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JButtonInventario19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        JPanelInventarioLayout.setVerticalGroup(
+            JPanelInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelInventarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(JButtonInventario1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario8, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario10, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario11, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario12, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario13, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario14, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario15, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario16, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario17, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario18, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario19, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JButtonInventario20, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        jScrollPane2.setViewportView(JPanelInventario);
 
         jDesktopPane1.setLayer(JButtonSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(JButtonDesequipar, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -148,6 +507,10 @@ public class Interface extends javax.swing.JFrame {
         jDesktopPane1.setLayer(JPanelTituloTienda, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(JPanelTituloInventario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(JPanelStats, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(JLabelCoins, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(JLabelDinero, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -155,9 +518,8 @@ public class Interface extends javax.swing.JFrame {
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(0, 27, Short.MAX_VALUE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(JButtonComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(JButtonVender, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,12 +530,23 @@ public class Interface extends javax.swing.JFrame {
                         .addGap(317, 317, 317)
                         .addComponent(JButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
-                            .addComponent(JPanelTituloTienda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JPanelTituloInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE)
+                            .addComponent(JPanelTituloTienda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(JPanelTituloInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JPanelStats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(JLabelDinero, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JLabelCoins)
+                                .addGap(24, 24, 24)))))
                 .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -190,13 +563,19 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(JButtonEquipar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(JButtonVender, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(JButtonComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JPanelTituloTienda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JPanelTituloInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(JPanelTituloTienda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JPanelTituloInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JLabelDinero))
+                    .addComponent(JLabelCoins))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JPanelStats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,6 +599,10 @@ public class Interface extends javax.swing.JFrame {
     private void JButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_JButtonSalirActionPerformed
+
+    private void JButtonInventario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,16 +644,65 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton JButtonComprar;
     private javax.swing.JButton JButtonDesequipar;
     private javax.swing.JButton JButtonEquipar;
+    private javax.swing.JButton JButtonInventario1;
+    private javax.swing.JButton JButtonInventario10;
+    private javax.swing.JButton JButtonInventario11;
+    private javax.swing.JButton JButtonInventario12;
+    private javax.swing.JButton JButtonInventario13;
+    private javax.swing.JButton JButtonInventario14;
+    private javax.swing.JButton JButtonInventario15;
+    private javax.swing.JButton JButtonInventario16;
+    private javax.swing.JButton JButtonInventario17;
+    private javax.swing.JButton JButtonInventario18;
+    private javax.swing.JButton JButtonInventario19;
+    private javax.swing.JButton JButtonInventario2;
+    private javax.swing.JButton JButtonInventario20;
+    private javax.swing.JButton JButtonInventario3;
+    private javax.swing.JButton JButtonInventario4;
+    private javax.swing.JButton JButtonInventario5;
+    private javax.swing.JButton JButtonInventario6;
+    private javax.swing.JButton JButtonInventario7;
+    private javax.swing.JButton JButtonInventario8;
+    private javax.swing.JButton JButtonInventario9;
     private javax.swing.JButton JButtonSalir;
     private javax.swing.JButton JButtonTienda1;
+    private javax.swing.JButton JButtonTienda10;
+    private javax.swing.JButton JButtonTienda11;
+    private javax.swing.JButton JButtonTienda12;
+    private javax.swing.JButton JButtonTienda13;
+    private javax.swing.JButton JButtonTienda14;
+    private javax.swing.JButton JButtonTienda15;
+    private javax.swing.JButton JButtonTienda16;
+    private javax.swing.JButton JButtonTienda17;
+    private javax.swing.JButton JButtonTienda18;
+    private javax.swing.JButton JButtonTienda19;
     private javax.swing.JButton JButtonTienda2;
+    private javax.swing.JButton JButtonTienda20;
     private javax.swing.JButton JButtonTienda4;
     private javax.swing.JButton JButtonTienda5;
+    private javax.swing.JButton JButtonTienda6;
+    private javax.swing.JButton JButtonTienda7;
+    private javax.swing.JButton JButtonTienda8;
+    private javax.swing.JButton JButtonTienda9;
     private javax.swing.JButton JButtonVender;
+    private javax.swing.JLabel JLabelAtaque;
+    private javax.swing.JLabel JLabelCoins;
+    private javax.swing.JLabel JLabelDefensa;
+    private javax.swing.JLabel JLabelDinero;
+    private javax.swing.JLabel JLabelEstilo;
+    private javax.swing.JLabel JLabelMagia;
+    private javax.swing.JLabel JLabelTituloInventario;
+    private javax.swing.JLabel JLabelTituloStats;
+    private javax.swing.JLabel JLabelTituloTienda;
+    private javax.swing.JLabel JLabelVelocidad;
+    private javax.swing.JLabel JLabelVida;
+    private javax.swing.JPanel JPanelInventario;
+    private javax.swing.JPanel JPanelStats;
     private javax.swing.JPanel JPanelTienda;
     private javax.swing.JPanel JPanelTituloInventario;
     private javax.swing.JPanel JPanelTituloTienda;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
