@@ -12,7 +12,6 @@ public class DatosApi {
         int[ ] listReviews = new int[20];                   // Definimos el arreglo donde vamos a guardar las reviews
         
  	public void DatosApi2 () throws IOException, UnirestException{               
-        System.out.println("Inicio");
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
@@ -32,15 +31,8 @@ public class DatosApi {
         for(int i = 0; i <= 19; i++)
 {
         JSONObject precio2 = (JSONObject) precio.get(i);
-        JSONObject precio3 = (JSONObject) precio2.get("price");                  //buscamos  price
-        var precio4 =  precio3.get("current_price");                  //buscamos current_price
-     
-        System.out.println("objeto N° "+i+"  precio: "+ precio4 +"\n");      // imprimimos
         
         JSONObject reviews = (JSONObject) precio2.get("reviews");                  //buscamos reviews
-        int reviewsNum = (int) reviews.get("total_reviews");                  //buscamos current_price
-        
-        System.out.println("reviews: "+ reviewsNum +"\n");      // imprimimos
         
         while (reviewsNum > 100){        
             reviewsNum = reviewsNum/2;
