@@ -1,5 +1,7 @@
 package andres_masis_poo;
+
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 
 public class Personaje {
 
@@ -13,87 +15,148 @@ public class Personaje {
     double velocidad;  //Stat
     double estilo;  //Stat
     double magia;  //Stat
-    
-    LinkedList<Items> inventario = new LinkedList<>();
-    LinkedList<Items> objetos_equipados = new LinkedList();
-    
-    
+
+
     // Constructor
-    public Personaje(){
+    public Personaje() {
         this.dinero = 3500;
         this.nombre = "Paquito";
         this.vida = 100;
-        this.ataque = 10; 
+        this.ataque = 10;
         this.defensa = 10;
         this.velocidad = 15;
-        this.estilo = 5; 
+        this.estilo = 5;
         this.magia = 3;
     }
 
-
     //Metodos
     
-    public void comprar(Items objeto) {
-        String name = objeto.nombre;
-        Double price = objeto.precio;
-        
-        // Se revisa si hay suficiente dinero para cubrir ese precio
-        if (price > this.dinero) {
-            System.out.println("No tienes suficiente dinero para comprar este objeto");
+    // Comprar
+    public void comprar(Items objeto, String procedencia) {
+        //Restricciones
+        if (objeto == null) {
+            // No se ha seleccionado ningun objeto
+            JOptionPane.showMessageDialog(null, "ERROR"
+                    + "\nNo has seleccionado ningun objeto.");
 
-        } else {
-            // Se pudo comprar
-            this.dinero -= price;
-            this.inventario.add(objeto);
-            System.out.println("Compraste " + name);
-            System.out.println("El dinero te quedo en " + this.dinero);
-        }
-    }
+        } else if (procedencia != "tienda") {
+            // Se selecciono un objeto del inventario y no la tienda
+            JOptionPane.showMessageDialog(null, "ERROR"
+                    + "\nHas seleccionado un elemento del INVENTARIO"
+                    + "\nPara comprar debes seleccionar un objeto de TIENDA");
 
-
-    public void vender(Items objeto) {
-        String nombre = objeto.nombre;
-        double precio_venta = objeto.precioVen;
-
-        desequipar(objeto);
-
-        this.dinero += precio_venta;
-        this.inventario.remove(objeto);
-        System.out.println("Vendiste " + nombre);
-        System.out.println("El dinero te quedo en " + this.dinero);
-    }
-
-    
- 
-    public void equipar(Items objeto) {
-        if (this.inventario.contains(objeto)) {
-            // Se equipo
-            objeto.setEquipado(true);
-            this.objetos_equipados.add(objeto);
-            System.out.println("Has equipado " + objeto.nombre);
-            asignarStats(objeto);
-
-        } else {
-            System.out.println("No has comprado " + objeto.nombre + " \n Por lo tanto no lo puedes equipar.");
-        }
-    }
-    
-    
-
-    public void desequipar(Items objeto) {
-        if (objeto.equipado) {
-            // Se desequipo
-            objeto.setEquipado(false);
-            this.objetos_equipados.remove(objeto);
-            System.out.println("Has desequipado " + objeto.nombre);
-            quitarStats(objeto);
             
         } else {
-            System.out.println("No has equipado " + objeto.nombre + " \n Por lo tanto no lo puedes desequipar.");
+            // Entrada valida
+            Double price = objeto.precio;
+
+            // Se revisa si hay suficiente dinero para cubrir ese precio
+            if (price > this.dinero) {
+                // No hay suficiente dinero
+                JOptionPane.showMessageDialog(null, "No tienes suficiente dinero para comprar este objeto");
+
+            } else {
+                // Se pudo comprar
+                this.dinero -= price;
+                objeto.cantidad_posee += 1;
+                JOptionPane.showMessageDialog(null, "Compraste " + objeto.nombre);
+            }
+        }
+    }
+
+    
+    
+    // Vender
+    public void vender(Items objeto, String procedencia) {
+        //Restricciones
+        if (objeto == null) {
+            // No se ha seleccionado ningun objeto
+            JOptionPane.showMessageDialog(null, "ERROR"
+                    + "\nNo has seleccionado ningun objeto.");
+
+        } else if (procedencia != "inventario") {
+            // Se selecciono un objeto de la tienda y no inventario
+            JOptionPane.showMessageDialog(null, "ERROR"
+                    + "\nHas seleccionado un elemento de TIENDA"
+                    + "\nPara vender debes seleccionar un objeto INVENTARIO");
+
+        } else {
+
+            double precio_venta = objeto.precioVen;
+            this.dinero += precio_venta;
+            objeto.cantidad_posee -= 1;
+            JOptionPane.showMessageDialog(null, "Vendiste " + objeto.nombre);
+            
+            if (objeto.cantidad_posee == 0 && objeto.equipado){
+                // Si ya no tiene el objeto entonces se desequipa
+                desequipar(objeto, procedencia);
+            }
         }
     }
     
-    public void asignarStats(Items objeto){
+    
+
+    // Equipar
+    public void equipar(Items objeto, String procedencia) {
+        // Restricciones
+        if (objeto == null) {
+            // No se ha seleccionado ningun objeto
+            JOptionPane.showMessageDialog(null, "ERROR"
+                    + "\nNo has seleccionado ningun objeto.");
+
+        } else if (procedencia != "inventario") {
+            // Se selecciono desde tienda
+            JOptionPane.showMessageDialog(null, "ERROR"
+                    + "\nSeleccionaste un objeto de la TIENDA"
+                    + "\nPara equipar debes seleccionar un objeto del INVENTARIO");
+            
+        } else if(objeto.equipado){
+            // Ya tiene equipado ese objeto
+            JOptionPane.showMessageDialog(null, "ERROR"
+                    + "\nYa tienes equipado ese objeto");
+
+        } else {
+            // Valido, se equipo
+            objeto.setEquipado(true);
+            asignarStats(objeto);
+            JOptionPane.showMessageDialog(null, "Equipaste " + objeto.nombre);
+        }
+    }
+
+    
+    
+    // Desequipar
+    public void desequipar(Items objeto, String procedencia) {
+        // Restricciones
+        if (objeto == null) {
+            // No se ha seleccionado ningun objeto
+            JOptionPane.showMessageDialog(null, "ERROR"
+                    + "\nNo has seleccionado ningun objeto.");
+
+        } else if (procedencia != "inventario") {
+            // Se selecciono desde tienda
+            JOptionPane.showMessageDialog(null, "ERROR"
+                    + "\nSeleccionaste un objeto de la TIENDA"
+                    + "\nPara desequipar debes seleccionar un objeto del INVENTARIO");
+            
+        } else if (objeto.equipado == false) {
+            // No esta equipado
+            JOptionPane.showMessageDialog(null, "ERROR"
+                    + "\nNo tienes equipado este objeto"
+                    + "\nPor lo tanto no lo puedes desequipar");
+
+        } else {
+            // Valido, se desequipo
+            objeto.setEquipado(false);
+            quitarStats(objeto);
+            JOptionPane.showMessageDialog(null, "Desequipaste " + objeto.nombre);
+        }
+    }
+
+    
+    
+    // Asignar stats
+    public void asignarStats(Items objeto) {
         // Se agregan los stats
         this.ataque += objeto.ataque;
         this.defensa += objeto.defensa;
@@ -102,8 +165,11 @@ public class Personaje {
         this.estilo += objeto.estilo;
         this.magia += objeto.magia;
     }
+
     
-    public void quitarStats(Items objeto){
+    
+    // Quitar stats
+    public void quitarStats(Items objeto) {
         // Se restan los stats
         this.ataque -= objeto.ataque;
         this.defensa -= objeto.defensa;
@@ -111,22 +177,6 @@ public class Personaje {
         this.velocidad -= objeto.velocidad;
         this.estilo -= objeto.estilo;
         this.magia -= objeto.magia;
-    }
-
-    
-    public void mostrarInventario() {
-        int cantidad_objetos = inventario.size();
-        for (int i = 0; i < cantidad_objetos; i++) {
-           System.out.println(i + 1 + ". " + inventario.get(i).nombre);
-        }
-    }
-    
-    
-    public void mostrarEquipados() {
-        int cantidad_objetos = this.objetos_equipados.size();
-        for (int i = 0; i < cantidad_objetos; i++) {
-            System.out.println(i + 1 + ". " + this.objetos_equipados.get(i).nombre);
-        }
     }
 
 }

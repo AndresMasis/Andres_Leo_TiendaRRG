@@ -8,6 +8,7 @@ public class Items {
     String nombre;
     double precioVen;
     boolean equipado;
+    int cantidad_posee;
 
     
     double vida;  //Stat
@@ -36,6 +37,7 @@ public class Items {
         this.velocidad = velocidad;
         this.estilo = estilo;
         this. magia = magia;
+        this.cantidad_posee = 0;
     }
 
 
