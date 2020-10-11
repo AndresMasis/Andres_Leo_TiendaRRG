@@ -12,14 +12,13 @@ public class DatosApi {
         int[ ] listReviews = new int[20];                   // Definimos el arreglo donde vamos a guardar las reviews
         
  	public void DatosApi2 () throws IOException, UnirestException{               
-        System.out.println("Inicio");
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
                 .url("https://amazon-product-reviews-keywords.p.rapidapi.com/product/search?category=aps&country=US&keyword=iphone")
                 .get()
                 .addHeader("x-rapidapi-host", "amazon-product-reviews-keywords.p.rapidapi.com")
-                .addHeader("x-rapidapi-key", "a13b816d4emsh84bfab1266639d2p1c20ecjsn1a9bbd616d49")
+                .addHeader("x-rapidapi-key", "a208447badmsh19fe015da114730p18446fjsnf0e1559e6f4d")
                 .build();
 
         Response response = client.newCall(request).execute(); // el request
@@ -35,9 +34,7 @@ public class DatosApi {
                       
         JSONObject reviews = (JSONObject) precio2.get("reviews");                  //buscamos reviews
         int reviewsNum = (int) reviews.get("total_reviews");                  //buscamos current_price
-        
-        System.out.println("reviews: "+ reviewsNum +"\n");      // imprimimos
-        
+          
         while (reviewsNum > 100){        
             reviewsNum = reviewsNum/2;
         }
@@ -45,6 +42,7 @@ public class DatosApi {
        this.listPrecio[i]= ((reviewsNum*2)/5)+15;
        this.listReviews[i]= (reviewsNum/2)+13;
        }
+        
     }
 }
 

@@ -7,7 +7,6 @@ public class Personaje {
 
     //Atributos
     double dinero;
-    String nombre;
 
     double vida;  //Stat
     double ataque;  //Stat
@@ -20,7 +19,6 @@ public class Personaje {
     // Constructor
     public Personaje() {
         this.dinero = 3500;
-        this.nombre = "Paquito";
         this.vida = 100;
         this.ataque = 10;
         this.defensa = 10;
@@ -58,8 +56,7 @@ public class Personaje {
             } else {
                 // Se pudo comprar
                 this.dinero -= price;
-                objeto.cantidad_posee += 1;
-                JOptionPane.showMessageDialog(null, "Compraste " + objeto.nombre);
+                objeto.cantidad_posee += 1;              
             }
         }
     }
@@ -85,7 +82,6 @@ public class Personaje {
             double precio_venta = objeto.precioVen;
             this.dinero += precio_venta;
             objeto.cantidad_posee -= 1;
-            JOptionPane.showMessageDialog(null, "Vendiste " + objeto.nombre);
             
             if (objeto.cantidad_posee == 0 && objeto.equipado){
                 // Si ya no tiene el objeto entonces se desequipa
@@ -106,10 +102,14 @@ public class Personaje {
 
         } else if (procedencia != "inventario") {
             // Se selecciono desde tienda
-            JOptionPane.showMessageDialog(null, "ERROR"
-                    + "\nSeleccionaste un objeto de la TIENDA"
-                    + "\nPara equipar debes seleccionar un objeto del INVENTARIO");
+            this.comprar(objeto, "tienda");
+            this.equipar(objeto, "inventario");
             
+        } else if(objeto.categoria.equals("Consumibles")){
+            // Los consumibles no se pueden equipar 
+            JOptionPane.showMessageDialog(null, "ERROR"
+                    + "\nLos consumibles no se pueden equipar.");
+
         } else if(objeto.equipado){
             // Ya tiene equipado ese objeto
             JOptionPane.showMessageDialog(null, "ERROR"
@@ -119,7 +119,6 @@ public class Personaje {
             // Valido, se equipo
             objeto.setEquipado(true);
             asignarStats(objeto);
-            JOptionPane.showMessageDialog(null, "Equipaste " + objeto.nombre);
         }
     }
 
@@ -149,7 +148,6 @@ public class Personaje {
             // Valido, se desequipo
             objeto.setEquipado(false);
             quitarStats(objeto);
-            JOptionPane.showMessageDialog(null, "Desequipaste " + objeto.nombre);
         }
     }
 

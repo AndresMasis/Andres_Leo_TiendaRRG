@@ -11,62 +11,110 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.util.LinkedList;
-
+import andres_masis_poo.DatosApi;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import java.awt.Toolkit;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Andrés
  */
-public class Interface extends javax.swing.JFrame {
+public final class Interface extends javax.swing.JFrame {
 
+   
     Items objeto = null;
     String procedencia = null;
 
-    static LinkedList<Items> todos_objetos = new LinkedList<>();
+    LinkedList<Items> todos_objetos = new LinkedList<>();
 
-    
-    DatosApi pre = new DatosApi(); 
     // ARMA
-
-     Armas weapon0 = new Armas(pre.listPrecio[0], "Armas", "Draktharr", 0, pre.listReviews[0], 0, 0, pre.listReviews[0]/3, pre.listReviews[0]/5);
-     Armas weapon1 = new Armas(pre.listPrecio[1], "Armas", "Filo", 0, pre.listReviews[1], 0, 0, pre.listReviews[1]/3, pre.listReviews[1]/5);
-     Armas weapon2 = new Armas(pre.listPrecio[2], "Armas", "Youmuu", 0, pre.listReviews[2], 0, pre.listReviews[2]/2, pre.listReviews[2]/3, 0);
-     Armas weapon3 = new Armas(pre.listPrecio[3], "Armas", "Statikk", 0, pre.listReviews[3], 0, 0, pre.listReviews[3]/3, pre.listReviews[3]/5);
-     Armas weapon4 = new Armas(pre.listPrecio[4], "Armas", "Guinsoo", 0, pre.listReviews[4], 0, 0, pre.listReviews[4]/3, pre.listReviews[4]/5);
-     Armas weapon5 = new Armas(pre.listPrecio[5], "Armas", "Espadón", 0, pre.listReviews[5], 0, 0, pre.listReviews[5]/3, 0);
-     Armas weapon6 = new Armas(pre.listPrecio[6], "Armas", "Rabadon", 0, pre.listReviews[6], 0, 0, pre.listReviews[6]/3, pre.listReviews[6]/5);
-     Armas weapon7 = new Armas(pre.listPrecio[7], "Armas", "Manamune", 0, pre.listReviews[7], 0, 0, pre.listReviews[7]/3, pre.listReviews[7]/5);
-     Armas weapon8 = new Armas(pre.listPrecio[8], "Armas", "Huracán", 0, pre.listReviews[8], 0, 0, pre.listReviews[8]/3, pre.listReviews[8]/5);
+    
+     Armas weapon0;
+     Armas weapon1;
+     Armas weapon2;
+     Armas weapon3;
+     Armas weapon4;
+     Armas weapon5;
+     Armas weapon6;
+     Armas weapon7;
+     Armas weapon8;
 
     // ARMADURA
 
-     Armadura armor0 = new Armadura(pre.listPrecio[9], "Armadura", "Cotas", 0, 0, pre.listReviews[9], 0, pre.listReviews[9]/4, pre.listReviews[9]/10, "Chaleco con espinas");
-     Armadura armor1 = new Armadura(pre.listPrecio[10], "Armadura", "Warmog", 0, 0, pre.listReviews[10], 0, pre.listReviews[10]/4, pre.listReviews[10]/10, "Chaleco grueso");
-     Armadura armor2 = new Armadura(pre.listPrecio[11], "Armadura", "Caperuza", 0, 0, pre.listReviews[11], 0, pre.listReviews[11]/4, pre.listReviews[11]/10, "Casco de cuero");
-     Armadura armor3 = new Armadura(pre.listPrecio[12], "Armadura", "Segahuesos", 0, 0, pre.listReviews[12], 0, pre.listReviews[12]/4, pre.listReviews[12]/10, "Casco de huesos");
-     Armadura armor4 = new Armadura(pre.listPrecio[13], "Armadura", "Botas", 0, 0, pre.listReviews[13], 0, pre.listReviews[13]/4, pre.listReviews[13]/10, "Botas normales");
-     Armadura armor5 = new Armadura(pre.listPrecio[14], "Armadura", "Escarpe", 0, 0, pre.listReviews[14], 0, pre.listReviews[14]/4, pre.listReviews[14]/10, "Botas de acero");
-     Armadura armor6 = new Armadura(pre.listPrecio[15], "Armadura", "Leeroy ", 0, 0, pre.listReviews[15], 0, pre.listReviews[15]/4, pre.listReviews[15]/10, "Pantalon");
-     Armadura armor7 = new Armadura(pre.listPrecio[16], "Armadura", "Jenkins", 0, 0, pre.listReviews[16], 0, pre.listReviews[16]/4, pre.listReviews[16]/10, "Pantalon");
+     Armadura armor0;
+     Armadura armor1;
+     Armadura armor2; 
+     Armadura armor3; 
+     Armadura armor4; 
+     Armadura armor5; 
+     Armadura armor6; 
+     Armadura armor7; 
 
     // CONSUMIBLE
 
-     Consumibles potion0 = new Consumibles(pre.listPrecio[17], "Consumibles", "Pocion pequeña", pre.listReviews[17]/3, 0, 0, 0, 0, 0);
-     Consumibles potion1 = new Consumibles(pre.listPrecio[18], "Consumibles", "Pocion mediana", pre.listReviews[18]*2, 0, 0, 0, 0, 0);
-     Consumibles potion2 = new Consumibles(pre.listPrecio[19], "Consumibles", "Pocion grande", pre.listReviews[19]*4, 0, 0, 0, 0, 0);
+     Consumibles potion0; 
+     Consumibles potion1; 
+     Consumibles potion2; 
 
      
     // PERSONAJE
-    static Personaje character = new Personaje();
+    Personaje character;
 
     /**
      * Creates new form Interface
      *
+     * @throws java.io.IOException
+     * @throws com.mashape.unirest.http.exceptions.UnirestException
      */
-    public Interface() {
+    public Interface() throws IOException, UnirestException {
+    DatosApi pre = new DatosApi();
+    pre.DatosApi2();
+    
+     this.weapon0 = new Armas(pre.listPrecio[0], "Armas", "Draktharr", 0, pre.listReviews[0], 0, 0, pre.listReviews[0]/3, pre.listReviews[0]/5);
+     this.weapon1 = new Armas(pre.listPrecio[1], "Armas", "Filo", 0, pre.listReviews[1], 0, 0, pre.listReviews[1]/3, pre.listReviews[1]/5);
+     this.weapon2 = new Armas(pre.listPrecio[2], "Armas", "Youmuu", 0, pre.listReviews[2], 0, pre.listReviews[2]/2, pre.listReviews[2]/3, 0);
+     this.weapon3 = new Armas(pre.listPrecio[3], "Armas", "Statikk", 0, pre.listReviews[3], 0, 0, pre.listReviews[3]/3, pre.listReviews[3]/5);
+     this.weapon4 = new Armas(pre.listPrecio[4], "Armas", "Guinsoo", 0, pre.listReviews[4], 0, 0, pre.listReviews[4]/3, pre.listReviews[4]/5);
+     this.weapon5 = new Armas(pre.listPrecio[5], "Armas", "Espadón", 0, pre.listReviews[5], 0, 0, pre.listReviews[5]/3, 0);
+     this.weapon6 = new Armas(pre.listPrecio[6], "Armas", "Rabadon", 0, pre.listReviews[6], 0, 0, pre.listReviews[6]/3, pre.listReviews[6]/5);
+     this.weapon7 = new Armas(pre.listPrecio[7], "Armas", "Manamune", 0, pre.listReviews[7], 0, 0, pre.listReviews[7]/3, pre.listReviews[7]/5);
+     this.weapon8 = new Armas(pre.listPrecio[8], "Armas", "Huracán", 0, pre.listReviews[8], 0, 0, pre.listReviews[8]/3, pre.listReviews[8]/5);
+     
+    // ARMADURA
+
+     this.armor0 = new Armadura(pre.listPrecio[9], "Armadura", "Cotas", 0, 0, pre.listReviews[9], 0, pre.listReviews[9]/4, pre.listReviews[9]/10, "Chaleco con espinas");
+     this.armor1 = new Armadura(pre.listPrecio[10], "Armadura", "Warmog", 0, 0, pre.listReviews[10], 0, pre.listReviews[10]/4, pre.listReviews[10]/10, "Chaleco grueso");
+     this.armor2 = new Armadura(pre.listPrecio[11], "Armadura", "Caperuza", 0, 0, pre.listReviews[11], 0, pre.listReviews[11]/4, pre.listReviews[11]/10, "Casco de cuero");
+     this.armor3 = new Armadura(pre.listPrecio[12], "Armadura", "Segahuesos", 0, 0, pre.listReviews[12], 0, pre.listReviews[12]/4, pre.listReviews[12]/10, "Casco de huesos");
+     this.armor4 = new Armadura(pre.listPrecio[13], "Armadura", "Botas", 0, 0, pre.listReviews[13], 0, pre.listReviews[13]/4, pre.listReviews[13]/10, "Botas normales");
+     this.armor5 = new Armadura(pre.listPrecio[14], "Armadura", "Escarpe", 0, 0, pre.listReviews[14], 0, pre.listReviews[14]/4, pre.listReviews[14]/10, "Botas de acero");
+     this.armor6 = new Armadura(pre.listPrecio[15], "Armadura", "Leeroy ", 0, 0, pre.listReviews[15], 0, pre.listReviews[15]/4, pre.listReviews[15]/10, "Pantalon");
+     this.armor7 = new Armadura(pre.listPrecio[16], "Armadura", "Jenkins", 0, 0, pre.listReviews[16], 0, pre.listReviews[16]/4, pre.listReviews[16]/10, "Pantalon");
+
+    // CONSUMIBLE
+
+     this.potion0 = new Consumibles(pre.listPrecio[17], "Consumibles", "Pocion pequeña", pre.listReviews[17]/3, 0, 0, 0, 0, 0);
+     this.potion1 = new Consumibles(pre.listPrecio[18], "Consumibles", "Pocion mediana", pre.listReviews[18]*2, 0, 0, 0, 0, 0);
+     this.potion2 = new Consumibles(pre.listPrecio[19], "Consumibles", "Pocion grande", pre.listReviews[19]*4, 0, 0, 0, 0, 0);
+
+     this.character = new Personaje();
+     
+     this.cargarLista(); // la cargamos para setear los nombres
+     
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/icon.png"));
+        return retValue;
+    }   
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,13 +133,13 @@ public class Interface extends javax.swing.JFrame {
             // Revisa si esta equipado
             if(objeto.equipado){
                 // Lo tiene equipado
-                boton.setText(objeto.nombre + " <" + objeto.categoria + ">     " + "Equipado");
+                boton.setText("<" + objeto.categoria + "> " + objeto.nombre + "-Equipado" + "["+ objeto.cantidad_posee +"]");
             } else {
-                boton.setText(objeto.nombre + " <" + objeto.categoria + ">     " + "NO Equipado");
+                boton.setText("<" + objeto.categoria + "> " + objeto.nombre + "-Desequipado" + "["+ objeto.cantidad_posee +"]");
             }
         }
         
-    }
+    }    
     
     
     
@@ -113,16 +161,34 @@ public class Interface extends javax.swing.JFrame {
         this.ocultarMostarBotones(todos_objetos.get(0), JButtonInventario1);
         this.ocultarMostarBotones(todos_objetos.get(1), JButtonInventario2);
         this.ocultarMostarBotones(todos_objetos.get(2), JButtonInventario3);
+        this.ocultarMostarBotones(todos_objetos.get(3), JButtonInventario4);
+        this.ocultarMostarBotones(todos_objetos.get(4), JButtonInventario5);
+        this.ocultarMostarBotones(todos_objetos.get(5), JButtonInventario6);
+        this.ocultarMostarBotones(todos_objetos.get(6), JButtonInventario7);
+        this.ocultarMostarBotones(todos_objetos.get(7), JButtonInventario8);
+        this.ocultarMostarBotones(todos_objetos.get(8), JButtonInventario9);
+        this.ocultarMostarBotones(todos_objetos.get(9), JButtonInventario10);
+        this.ocultarMostarBotones(todos_objetos.get(10), JButtonInventario11);
+        this.ocultarMostarBotones(todos_objetos.get(11), JButtonInventario12);
+        this.ocultarMostarBotones(todos_objetos.get(12), JButtonInventario13);
+        this.ocultarMostarBotones(todos_objetos.get(13), JButtonInventario14);
+        this.ocultarMostarBotones(todos_objetos.get(14), JButtonInventario15);
+        this.ocultarMostarBotones(todos_objetos.get(15), JButtonInventario16);
+        this.ocultarMostarBotones(todos_objetos.get(16), JButtonInventario17);
+        this.ocultarMostarBotones(todos_objetos.get(17), JButtonInventario18);
+        this.ocultarMostarBotones(todos_objetos.get(18), JButtonInventario19);
+        this.ocultarMostarBotones(todos_objetos.get(19), JButtonInventario20);
     }
 
     public void preview(Items objeto, Personaje character) {
-        JOptionPane.showMessageDialog(null, "PREVIEW"
-                + "\nAtaque " + character.ataque + " + " + objeto.ataque
-                + "\nDefensa " + character.defensa + " + " + objeto.defensa
-                + "\nVida " + character.vida + " + " + objeto.vida
-                + "\nVelocidad " + character.velocidad + " + " + objeto.velocidad
-                + "\nEstilo " + character.estilo + " + " + objeto.estilo
-                + "\nMagia " + character.magia + " + " + objeto.magia);
+        
+        JLabelAtaque.setText("Ataque " + character.ataque + " + " + objeto.ataque);
+        JLabelDefensa.setText("Defensa " + character.defensa + " + " + objeto.defensa);
+        JLabelVelocidad.setText("Velocidad " + character.velocidad + " + " + objeto.vida);
+        JLabelVida.setText("Vida " + character.vida + " + " + objeto.velocidad);
+        JLabelEstilo.setText("Estilo " + character.estilo + " + " + objeto.estilo);
+        JLabelMagia.setText("Magia " + character.magia + " + " + objeto.magia);
+        
     }
 
     public void cargarLista() {
@@ -148,6 +214,7 @@ public class Interface extends javax.swing.JFrame {
     todos_objetos.add(potion0);
     todos_objetos.add(potion1);
     todos_objetos.add(potion2);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -200,6 +267,12 @@ public class Interface extends javax.swing.JFrame {
         JLabelVelocidad = new javax.swing.JLabel();
         JLabelEstilo = new javax.swing.JLabel();
         JLabelMagia = new javax.swing.JLabel();
+        jlabel_img_ataque = new javax.swing.JLabel();
+        jlabel_img_defensa = new javax.swing.JLabel();
+        jlabel_img_vida = new javax.swing.JLabel();
+        jlabel_img_velocidad = new javax.swing.JLabel();
+        jlabel_img_estilo = new javax.swing.JLabel();
+        jlabel_img_magia = new javax.swing.JLabel();
         JLabelCoins = new javax.swing.JLabel();
         JLabelDinero = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -224,11 +297,15 @@ public class Interface extends javax.swing.JFrame {
         JButtonInventario18 = new javax.swing.JButton();
         JButtonInventario19 = new javax.swing.JButton();
         JButtonInventario20 = new javax.swing.JButton();
+        jlabel_paquito = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setUndecorated(true);
 
-        JButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_salir.png"))); // NOI18N
+        JButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_salir_0.png"))); // NOI18N
+        JButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_salir_1.png"))); // NOI18N
         JButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtonSalirActionPerformed(evt);
@@ -236,6 +313,9 @@ public class Interface extends javax.swing.JFrame {
         });
 
         JButtonDesequipar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_desequipar.png"))); // NOI18N
+        JButtonDesequipar.setContentAreaFilled(false);
+        JButtonDesequipar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonDesequipar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_desequipar_1.png"))); // NOI18N
         JButtonDesequipar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtonDesequiparActionPerformed(evt);
@@ -243,13 +323,17 @@ public class Interface extends javax.swing.JFrame {
         });
 
         JButtonEquipar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_equipar.png"))); // NOI18N
+        JButtonEquipar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonEquipar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_equipar_1.png"))); // NOI18N
         JButtonEquipar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtonEquiparActionPerformed(evt);
             }
         });
 
-        JButtonVender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_vender.png"))); // NOI18N
+        JButtonVender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_vender_0.png"))); // NOI18N
+        JButtonVender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonVender.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_vender_1.png"))); // NOI18N
         JButtonVender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtonVenderActionPerformed(evt);
@@ -257,6 +341,21 @@ public class Interface extends javax.swing.JFrame {
         });
 
         JButtonComprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_comprar.png"))); // NOI18N
+        JButtonComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonComprar.setDisabledIcon(null);
+        JButtonComprar.setDisabledSelectedIcon(null);
+        JButtonComprar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_equipar_1.png"))); // NOI18N
+        JButtonComprar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JButtonComprarMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JButtonComprarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                JButtonComprarMouseReleased(evt);
+            }
+        });
         JButtonComprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtonComprarActionPerformed(evt);
@@ -271,10 +370,10 @@ public class Interface extends javax.swing.JFrame {
         JPanelTituloTienda.setLayout(JPanelTituloTiendaLayout);
         JPanelTituloTiendaLayout.setHorizontalGroup(
             JPanelTituloTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelTituloTiendaLayout.createSequentialGroup()
-                .addGap(156, 156, 156)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelTituloTiendaLayout.createSequentialGroup()
+                .addContainerGap(132, Short.MAX_VALUE)
                 .addComponent(JLabelTituloTienda)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(121, 121, 121))
         );
         JPanelTituloTiendaLayout.setVerticalGroup(
             JPanelTituloTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,10 +388,10 @@ public class Interface extends javax.swing.JFrame {
         JPanelTituloInventario.setLayout(JPanelTituloInventarioLayout);
         JPanelTituloInventarioLayout.setHorizontalGroup(
             JPanelTituloInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelTituloInventarioLayout.createSequentialGroup()
-                .addContainerGap(161, Short.MAX_VALUE)
+            .addGroup(JPanelTituloInventarioLayout.createSequentialGroup()
+                .addGap(174, 174, 174)
                 .addComponent(JLabelTituloInventario)
-                .addGap(139, 139, 139))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JPanelTituloInventarioLayout.setVerticalGroup(
             JPanelTituloInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,8 +408,25 @@ public class Interface extends javax.swing.JFrame {
         JButtonTienda1.setBackground(new java.awt.Color(29, 70, 252));
         JButtonTienda1.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
         JButtonTienda1.setForeground(new java.awt.Color(255, 255, 255));
-        JButtonTienda1.setText("Slider<Armas>            100");
-        JButtonTienda1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JButtonTienda1.setText((todos_objetos.get(0)).nombre + "  $ " + (todos_objetos.get(0)).precio);
+        JButtonTienda1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JButtonTienda1MouseEntered(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                JButtonTienda1MouseReleased(evt);
+            }
+        });
         JButtonTienda1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtonTienda1ActionPerformed(evt);
@@ -320,7 +436,17 @@ public class Interface extends javax.swing.JFrame {
         JButtonTienda2.setBackground(new java.awt.Color(29, 70, 252));
         JButtonTienda2.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
         JButtonTienda2.setForeground(new java.awt.Color(255, 255, 255));
-        JButtonTienda2.setText("Chaleco Debil <Armadura>        100");
+        JButtonTienda2.setText((todos_objetos.get(1)).nombre + "  $ " + (todos_objetos.get(1)).precio);
+        JButtonTienda2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
         JButtonTienda2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtonTienda2ActionPerformed(evt);
@@ -330,46 +456,379 @@ public class Interface extends javax.swing.JFrame {
         JButtomTienda3.setBackground(new java.awt.Color(29, 70, 252));
         JButtomTienda3.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
         JButtomTienda3.setForeground(new java.awt.Color(255, 255, 255));
-        JButtomTienda3.setText("Pocion Pequeña<Consumibles>         25");
+        JButtomTienda3.setText((todos_objetos.get(2)).nombre + "  $ " + (todos_objetos.get(2)).precio);
+        JButtomTienda3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtomTienda3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtomTienda3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
         JButtomTienda3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtomTienda3ActionPerformed(evt);
             }
         });
 
-        JButtonTienda4.setText("jButton1");
+        JButtonTienda4.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda4.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda4.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda4.setMnemonic('[');
+        JButtonTienda4.setText((todos_objetos.get(3)).nombre + "  $ " + (todos_objetos.get(3)).precio);
+        JButtonTienda4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda4ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda5.setText("jButton1");
+        JButtonTienda5.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda5.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda5.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda5.setMnemonic('[');
+        JButtonTienda5.setText((todos_objetos.get(4)).nombre + "  $ " + (todos_objetos.get(4)).precio);
+        JButtonTienda5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda5ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda6.setText("jButton4");
+        JButtonTienda6.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda6.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda6.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda6.setMnemonic('[');
+        JButtonTienda6.setText((todos_objetos.get(5)).nombre + "  $ " + (todos_objetos.get(5)).precio);
+        JButtonTienda6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda6ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda7.setText("jButton4");
+        JButtonTienda7.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda7.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda7.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda7.setMnemonic('[');
+        JButtonTienda7.setText((todos_objetos.get(6)).nombre + "  $ " + (todos_objetos.get(6)).precio);
+        JButtonTienda7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda7.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda7ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda8.setText("jButton4");
+        JButtonTienda8.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda8.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda8.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda8.setMnemonic('[');
+        JButtonTienda8.setText((todos_objetos.get(7)).nombre + "  $ " + (todos_objetos.get(7)).precio);
+        JButtonTienda8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda8.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda8ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda9.setText("jButton4");
+        JButtonTienda9.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda9.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda9.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda9.setMnemonic('[');
+        JButtonTienda9.setText((todos_objetos.get(8)).nombre + "  $ " + (todos_objetos.get(8)).precio);
+        JButtonTienda9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda9.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda9ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda10.setText("jButton4");
+        JButtonTienda10.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda10.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda10.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda10.setMnemonic('[');
+        JButtonTienda10.setText((todos_objetos.get(9)).nombre + "  $ " + (todos_objetos.get(9)).precio);
+        JButtonTienda10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda10.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda10ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda11.setText("jButton4");
+        JButtonTienda11.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda11.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda11.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda11.setMnemonic('[');
+        JButtonTienda11.setText((todos_objetos.get(10)).nombre + "  $ " + (todos_objetos.get(10)).precio);
+        JButtonTienda11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda11.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda11ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda12.setText("jButton4");
+        JButtonTienda12.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda12.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda12.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda12.setMnemonic('[');
+        JButtonTienda12.setText((todos_objetos.get(11)).nombre + "  $ " + (todos_objetos.get(11)).precio);
+        JButtonTienda12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda12.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda12ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda13.setText("jButton4");
+        JButtonTienda13.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda13.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda13.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda13.setMnemonic('[');
+        JButtonTienda13.setText((todos_objetos.get(12)).nombre + "  $ " + (todos_objetos.get(12)).precio);
+        JButtonTienda13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda13.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda13ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda14.setText("jButton4");
+        JButtonTienda14.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda14.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda14.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda14.setMnemonic('[');
+        JButtonTienda14.setText((todos_objetos.get(13)).nombre + "  $ " + (todos_objetos.get(13)).precio);
+        JButtonTienda14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda14.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda14ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda15.setText("jButton4");
+        JButtonTienda15.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda15.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda15.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda15.setMnemonic('[');
+        JButtonTienda15.setText((todos_objetos.get(14)).nombre + "  $ " + (todos_objetos.get(14)).precio);
+        JButtonTienda15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda15.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda15ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda16.setText("jButton4");
+        JButtonTienda16.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda16.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda16.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda16.setMnemonic('[');
+        JButtonTienda16.setText((todos_objetos.get(15)).nombre + "  $ " + (todos_objetos.get(15)).precio);
+        JButtonTienda16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda16.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda16ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda17.setText("jButton4");
+        JButtonTienda17.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda17.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda17.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda17.setMnemonic('[');
+        JButtonTienda17.setText((todos_objetos.get(16)).nombre + "  $ " + (todos_objetos.get(16)).precio);
+        JButtonTienda17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda17.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda17ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda18.setText("jButton4");
+        JButtonTienda18.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda18.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda18.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda18.setMnemonic('[');
+        JButtonTienda18.setText((todos_objetos.get(17)).nombre + "  $ " + (todos_objetos.get(17)).precio);
+        JButtonTienda18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda18.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda18ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda19.setText("jButton4");
+        JButtonTienda19.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda19.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda19.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda19.setMnemonic('[');
+        JButtonTienda19.setText((todos_objetos.get(18)).nombre + "  $ " + (todos_objetos.get(18)).precio);
+        JButtonTienda19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda19.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda19ActionPerformed(evt);
+            }
+        });
 
-        JButtonTienda20.setText("jButton4");
+        JButtonTienda20.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonTienda20.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonTienda20.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonTienda20.setMnemonic('[');
+        JButtonTienda20.setText((todos_objetos.get(19)).nombre + "  $ " + (todos_objetos.get(19)).precio);
+        JButtonTienda20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonTienda20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonTienda20.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JButtonTienda1FocusLost(evt);
+            }
+        });
+        JButtonTienda20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonTienda20ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelTiendaLayout = new javax.swing.GroupLayout(JPanelTienda);
         JPanelTienda.setLayout(JPanelTiendaLayout);
@@ -489,42 +948,74 @@ public class Interface extends javax.swing.JFrame {
         JLabelMagia.setText("Magia 3.0");
         JLabelMagia.setOpaque(true);
 
+        jlabel_img_ataque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/espada_ataque.png"))); // NOI18N
+
+        jlabel_img_defensa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/defensa_escudo.png"))); // NOI18N
+
+        jlabel_img_vida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vida_rubi.png"))); // NOI18N
+
+        jlabel_img_velocidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/velocidad_bota.png"))); // NOI18N
+
+        jlabel_img_estilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/look_apariencia.png"))); // NOI18N
+
+        jlabel_img_magia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/magia_baston.png"))); // NOI18N
+
         javax.swing.GroupLayout JPanelStatsLayout = new javax.swing.GroupLayout(JPanelStats);
         JPanelStats.setLayout(JPanelStatsLayout);
         JPanelStatsLayout.setHorizontalGroup(
             JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelStatsLayout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
-                .addComponent(JLabelTituloStats)
-                .addGap(66, 66, 66))
-            .addGroup(JPanelStatsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLabelAtaque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JLabelDefensa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JLabelVida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JLabelVelocidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JLabelEstilo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JLabelMagia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JLabelMagia, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelEstilo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelVelocidad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelVida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelDefensa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(JPanelStatsLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(JLabelTituloStats)
+                        .addGap(19, 19, 19))
+                    .addComponent(JLabelAtaque, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jlabel_img_ataque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlabel_img_defensa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlabel_img_vida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlabel_img_velocidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlabel_img_estilo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlabel_img_magia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
         JPanelStatsLayout.setVerticalGroup(
             JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelStatsLayout.createSequentialGroup()
                 .addComponent(JLabelTituloStats)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JLabelAtaque, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jlabel_img_ataque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelAtaque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(JLabelDefensa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jlabel_img_defensa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelDefensa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(JLabelVida, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jlabel_img_vida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelVida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(JLabelVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jlabel_img_velocidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelVelocidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(JLabelEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jlabel_img_estilo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelEstilo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(JLabelMagia, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
+                .addGroup(JPanelStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jlabel_img_magia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelMagia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         JLabelCoins.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/monedas_oro.png"))); // NOI18N
@@ -535,12 +1026,15 @@ public class Interface extends javax.swing.JFrame {
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(440, 510));
 
         JPanelInventario.setBackground(new java.awt.Color(0, 0, 51));
 
         JButtonInventario1.setBackground(new java.awt.Color(29, 70, 252));
         JButtonInventario1.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
         JButtonInventario1.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JButtonInventario1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtonInventario1ActionPerformed(evt);
@@ -550,6 +1044,8 @@ public class Interface extends javax.swing.JFrame {
         JButtonInventario2.setBackground(new java.awt.Color(29, 70, 252));
         JButtonInventario2.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
         JButtonInventario2.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JButtonInventario2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtonInventario2ActionPerformed(evt);
@@ -559,45 +1055,200 @@ public class Interface extends javax.swing.JFrame {
         JButtonInventario3.setBackground(new java.awt.Color(29, 70, 252));
         JButtonInventario3.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
         JButtonInventario3.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JButtonInventario3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtonInventario3ActionPerformed(evt);
             }
         });
 
-        JButtonInventario4.setText("jButton4");
+        JButtonInventario4.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario4.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario4.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario4ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario5.setText("jButton1");
+        JButtonInventario5.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario5.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario5.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario5ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario6.setText("jButton1");
+        JButtonInventario6.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario6.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario6.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario6ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario7.setText("jButton1");
+        JButtonInventario7.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario7.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario7.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario7ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario8.setText("jButton1");
+        JButtonInventario8.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario8.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario8.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario8ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario9.setText("jButton1");
+        JButtonInventario9.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario9.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario9.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario9ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario10.setText("jButton1");
+        JButtonInventario10.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario10.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario10.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario10ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario11.setText("jButton1");
+        JButtonInventario11.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario11.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario11.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario11ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario12.setText("jButton1");
+        JButtonInventario12.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario12.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario12.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario12ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario13.setText("jButton1");
+        JButtonInventario13.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario13.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario13.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario13ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario14.setText("jButton1");
+        JButtonInventario14.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario14.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario14.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario14ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario15.setText("jButton1");
+        JButtonInventario15.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario15.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario15.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario15ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario16.setText("jButton1");
+        JButtonInventario16.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario16.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario16.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario16ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario17.setText("jButton1");
+        JButtonInventario17.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario17.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario17.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario17ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario18.setText("jButton1");
+        JButtonInventario18.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario18.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario18.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario18ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario19.setText("jButton1");
+        JButtonInventario19.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario19.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario19.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario19ActionPerformed(evt);
+            }
+        });
 
-        JButtonInventario20.setText("jButton1");
+        JButtonInventario20.setBackground(new java.awt.Color(29, 70, 252));
+        JButtonInventario20.setFont(new java.awt.Font("Jokerman", 0, 24)); // NOI18N
+        JButtonInventario20.setForeground(new java.awt.Color(255, 255, 255));
+        JButtonInventario20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JButtonInventario20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JButtonInventario20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonInventario20ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelInventarioLayout = new javax.swing.GroupLayout(JPanelInventario);
         JPanelInventario.setLayout(JPanelInventarioLayout);
@@ -626,7 +1277,7 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(JButtonInventario14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JButtonInventario16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JButtonInventario19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JPanelInventarioLayout.setVerticalGroup(
             JPanelInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -676,6 +1327,8 @@ public class Interface extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(JPanelInventario);
 
+        jlabel_paquito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/paquito.png"))); // NOI18N
+
         jDesktopPane1.setLayer(JButtonSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(JButtonDesequipar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(JButtonEquipar, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -688,6 +1341,7 @@ public class Interface extends javax.swing.JFrame {
         jDesktopPane1.setLayer(JLabelCoins, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(JLabelDinero, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jlabel_paquito, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -697,33 +1351,36 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(JButtonComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JButtonVender, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JButtonEquipar, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JButtonComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(JButtonDesequipar, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(317, 317, 317)
+                        .addComponent(JButtonVender, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JButtonEquipar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(JButtonDesequipar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(jlabel_paquito, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(JButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(JPanelTituloTienda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JPanelTituloInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(JPanelTituloInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JPanelStats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(JLabelDinero, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JLabelCoins)
-                                .addGap(24, 24, 24)))))
+                                .addGap(24, 24, 24))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(JPanelStats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(7, 7, 7)))))
                 .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -731,27 +1388,30 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JButtonComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JButtonEquipar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JButtonDesequipar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JButtonVender, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(JButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JButtonDesequipar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JButtonEquipar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(JButtonVender, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(JButtonComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addGap(18, 18, 18)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jlabel_paquito, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(JPanelTituloTienda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(JPanelTituloInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(JLabelDinero))
                     .addComponent(JLabelCoins))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(JPanelStats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -769,14 +1429,7 @@ public class Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JButtonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonComprarActionPerformed
-        character.comprar(objeto, procedencia);
-        this.refresh();
-    }//GEN-LAST:event_JButtonComprarActionPerformed
 
-    private void JButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonSalirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_JButtonSalirActionPerformed
 
     private void JButtonInventario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario3ActionPerformed
         this.cargarLista();
@@ -785,19 +1438,54 @@ public class Interface extends javax.swing.JFrame {
         if (objeto.cantidad_posee == 0){
             // No hay nada entonces no se pasa nada
             objeto = null;
-            
+
         }else {
             // Se indica de donde viene
             procedencia = "inventario";
         }
     }//GEN-LAST:event_JButtonInventario3ActionPerformed
 
-    private void JButtonTienda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda1ActionPerformed
+    private void JButtonInventario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario2ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(1);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }
+    }//GEN-LAST:event_JButtonInventario2ActionPerformed
+
+    private void JButtonInventario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario1ActionPerformed
         this.cargarLista();
         objeto = todos_objetos.get(0);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }
+    }//GEN-LAST:event_JButtonInventario1ActionPerformed
+
+    private void JButtonTienda15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda15ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(14);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda15ActionPerformed
+
+    private void JButtomTienda3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtomTienda3ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(2);
         procedencia = "tienda";
         this.preview(objeto, character);
-    }//GEN-LAST:event_JButtonTienda1ActionPerformed
+    }//GEN-LAST:event_JButtomTienda3ActionPerformed
 
     private void JButtonTienda2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda2ActionPerformed
         this.cargarLista();
@@ -806,12 +1494,29 @@ public class Interface extends javax.swing.JFrame {
         this.preview(objeto, character);
     }//GEN-LAST:event_JButtonTienda2ActionPerformed
 
-    private void JButtomTienda3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtomTienda3ActionPerformed
+    private void JButtonTienda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda1ActionPerformed
         this.cargarLista();
-        objeto = todos_objetos.get(2);
+        objeto = todos_objetos.get(0);
         procedencia = "tienda";
         this.preview(objeto, character);
-    }//GEN-LAST:event_JButtomTienda3ActionPerformed
+    }//GEN-LAST:event_JButtonTienda1ActionPerformed
+
+    private void JButtonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonComprarActionPerformed
+        character.comprar(objeto, procedencia);
+        this.refresh();
+    }//GEN-LAST:event_JButtonComprarActionPerformed
+
+    private void JButtonComprarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonComprarMouseReleased
+        JButtonComprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_comprar.png")));
+    }//GEN-LAST:event_JButtonComprarMouseReleased
+
+    private void JButtonComprarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonComprarMousePressed
+        JButtonComprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton_comprar_1.png")));
+    }//GEN-LAST:event_JButtonComprarMousePressed
+
+    private void JButtonComprarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonComprarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonComprarMouseClicked
 
     private void JButtonVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonVenderActionPerformed
         character.vender(objeto, procedencia);
@@ -828,33 +1533,375 @@ public class Interface extends javax.swing.JFrame {
         this.refresh();
     }//GEN-LAST:event_JButtonDesequiparActionPerformed
 
-    private void JButtonInventario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario1ActionPerformed
+    private void JButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_JButtonSalirActionPerformed
+
+    private void JButtonTienda4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda4ActionPerformed
         this.cargarLista();
-        objeto = todos_objetos.get(0);
+        objeto = todos_objetos.get(3);
+        procedencia = "tienda";
+        this.preview(objeto, character);
+    }//GEN-LAST:event_JButtonTienda4ActionPerformed
+
+    private void JButtonInventario4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario4ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(3);
 
         if (objeto.cantidad_posee == 0){
             // No hay nada entonces no se pasa nada
             objeto = null;
-            
+
         }else {
             // Se indica de donde viene
             procedencia = "inventario";
-        }
-    }//GEN-LAST:event_JButtonInventario1ActionPerformed
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario4ActionPerformed
 
-    private void JButtonInventario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario2ActionPerformed
+    private void JButtonTienda1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonTienda1MouseEntered
+
+    }//GEN-LAST:event_JButtonTienda1MouseEntered
+
+    private void JButtonTienda1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonTienda1MouseReleased
+        this.preview(objeto, character);        
+    }//GEN-LAST:event_JButtonTienda1MouseReleased
+
+    private void JButtonTienda1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JButtonTienda1FocusLost
+        this.refresh();       
+    }//GEN-LAST:event_JButtonTienda1FocusLost
+
+    private void JButtonTienda1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JButtonTienda1FocusGained
+        this.preview(objeto, character);
+    }//GEN-LAST:event_JButtonTienda1FocusGained
+
+    private void JButtonTienda5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda5ActionPerformed
         this.cargarLista();
-        objeto = todos_objetos.get(1);
+        objeto = todos_objetos.get(4);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda5ActionPerformed
+
+    private void JButtonTienda6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda6ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(5);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda6ActionPerformed
+
+    private void JButtonTienda7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda7ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(6);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda7ActionPerformed
+
+    private void JButtonTienda8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda8ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(7);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda8ActionPerformed
+
+    private void JButtonTienda9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda9ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(8);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda9ActionPerformed
+
+    private void JButtonTienda10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda10ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(9);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda10ActionPerformed
+
+    private void JButtonTienda11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda11ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(10);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda11ActionPerformed
+
+    private void JButtonTienda12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda12ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(11);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda12ActionPerformed
+
+    private void JButtonTienda13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda13ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(12);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda13ActionPerformed
+
+    private void JButtonTienda14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda14ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(13);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda14ActionPerformed
+
+    private void JButtonTienda16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda16ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(15);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda16ActionPerformed
+
+    private void JButtonTienda17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda17ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(16);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda17ActionPerformed
+
+    private void JButtonTienda18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda18ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(17);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda18ActionPerformed
+
+    private void JButtonTienda19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda19ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(18);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda19ActionPerformed
+
+    private void JButtonTienda20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonTienda20ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(19);
+        procedencia = "tienda";
+        this.preview(objeto, character);        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonTienda20ActionPerformed
+
+    private void JButtonInventario5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario5ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(4);
 
         if (objeto.cantidad_posee == 0){
             // No hay nada entonces no se pasa nada
             objeto = null;
-            
+
         }else {
             // Se indica de donde viene
             procedencia = "inventario";
-        }
-    }//GEN-LAST:event_JButtonInventario2ActionPerformed
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario5ActionPerformed
+
+    private void JButtonInventario6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario6ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(5);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario6ActionPerformed
+
+    private void JButtonInventario7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario7ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(6);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario7ActionPerformed
+
+    private void JButtonInventario8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario8ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(7);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario8ActionPerformed
+
+    private void JButtonInventario9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario9ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(8);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario9ActionPerformed
+
+    private void JButtonInventario10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario10ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(9);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario10ActionPerformed
+
+    private void JButtonInventario11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario11ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(10);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario11ActionPerformed
+
+    private void JButtonInventario12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario12ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(11);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario12ActionPerformed
+
+    private void JButtonInventario13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario13ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(12);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario13ActionPerformed
+
+    private void JButtonInventario14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario14ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(13);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario14ActionPerformed
+
+    private void JButtonInventario15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario15ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(14);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario15ActionPerformed
+
+    private void JButtonInventario16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario16ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(15);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario16ActionPerformed
+
+    private void JButtonInventario17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario17ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(16);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario17ActionPerformed
+
+    private void JButtonInventario18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario18ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(17);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario18ActionPerformed
+
+    private void JButtonInventario19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario19ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(18);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario19ActionPerformed
+
+    private void JButtonInventario20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonInventario20ActionPerformed
+        this.cargarLista();
+        objeto = todos_objetos.get(19);
+
+        if (objeto.cantidad_posee == 0){
+            // No hay nada entonces no se pasa nada
+            objeto = null;
+
+        }else {
+            // Se indica de donde viene
+            procedencia = "inventario";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonInventario20ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -882,14 +1929,22 @@ public class Interface extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new Interface().setVisible(true);
+                try {
+                    new Interface().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (UnirestException ex) {
+                    Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtomTienda3;
@@ -956,5 +2011,12 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel jlabel_img_ataque;
+    private javax.swing.JLabel jlabel_img_defensa;
+    private javax.swing.JLabel jlabel_img_estilo;
+    private javax.swing.JLabel jlabel_img_magia;
+    private javax.swing.JLabel jlabel_img_velocidad;
+    private javax.swing.JLabel jlabel_img_vida;
+    private javax.swing.JLabel jlabel_paquito;
     // End of variables declaration//GEN-END:variables
 }
