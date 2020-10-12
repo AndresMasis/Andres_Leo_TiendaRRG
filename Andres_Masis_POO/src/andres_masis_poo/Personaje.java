@@ -66,8 +66,8 @@ public class Personaje {
     // Vender
     public void vender(Items objeto, String procedencia) {
         //Restricciones
-        if (objeto == null) {
-            // No se ha seleccionado ningun objeto
+        if (objeto == null || objeto.cantidad_posee == 0) {
+            // No se ha seleccionado ningun objeto o ya no se posee
             JOptionPane.showMessageDialog(null, "ERROR"
                     + "\nNo has seleccionado ningun objeto.");
 
@@ -95,8 +95,8 @@ public class Personaje {
     // Equipar
     public void equipar(Items objeto, String procedencia) {
         // Restricciones
-        if (objeto == null) {
-            // No se ha seleccionado ningun objeto
+        if (objeto == null || objeto.cantidad_posee == 0) {
+            // No se ha seleccionado ningun objeto o ya no se posee
             JOptionPane.showMessageDialog(null, "ERROR"
                     + "\nNo has seleccionado ningun objeto.");
 
@@ -127,8 +127,8 @@ public class Personaje {
     // Desequipar
     public void desequipar(Items objeto, String procedencia) {
         // Restricciones
-        if (objeto == null) {
-            // No se ha seleccionado ningun objeto
+        if (objeto == null || objeto.cantidad_posee == 0) {
+            // No se ha seleccionado ningun objeto o ya no se posee
             JOptionPane.showMessageDialog(null, "ERROR"
                     + "\nNo has seleccionado ningun objeto.");
 
