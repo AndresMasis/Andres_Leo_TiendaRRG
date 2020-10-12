@@ -72,27 +72,27 @@ public final class Interface extends javax.swing.JFrame {
     DatosApi pre = new DatosApi();
     pre.DatosApi2();
     
-     this.weapon0 = new Armas(pre.listPrecio[0], "Armas", "Draktharr", 0, pre.listReviews[0], 0, 0, pre.listReviews[0]/3, pre.listReviews[0]/5);
-     this.weapon1 = new Armas(pre.listPrecio[1], "Armas", "Filo", 0, pre.listReviews[1], 0, 0, pre.listReviews[1]/3, pre.listReviews[1]/5);
+     this.weapon0 = new Armas(pre.listPrecio[0], "Armas", "Draktharr", 0, pre.listReviews[0], 0, pre.listReviews[0]/3, 0, pre.listReviews[0]/5);
+     this.weapon1 = new Armas(pre.listPrecio[1], "Armas", "Filo", 0, pre.listReviews[1], 0, pre.listReviews[1]/3, 0, pre.listReviews[1]/5);
      this.weapon2 = new Armas(pre.listPrecio[2], "Armas", "Youmuu", 0, pre.listReviews[2], 0, pre.listReviews[2]/2, pre.listReviews[2]/3, 0);
-     this.weapon3 = new Armas(pre.listPrecio[3], "Armas", "Statikk", 0, pre.listReviews[3], 0, 0, pre.listReviews[3]/3, pre.listReviews[3]/5);
-     this.weapon4 = new Armas(pre.listPrecio[4], "Armas", "Guinsoo", 0, pre.listReviews[4], 0, 0, pre.listReviews[4]/3, pre.listReviews[4]/5);
-     this.weapon5 = new Armas(pre.listPrecio[5], "Armas", "Espadón", 0, pre.listReviews[5], 0, 0, pre.listReviews[5]/3, 0);
-     this.weapon6 = new Armas(pre.listPrecio[6], "Armas", "Rabadon", 0, pre.listReviews[6], 0, 0, pre.listReviews[6]/3, pre.listReviews[6]/5);
-     this.weapon7 = new Armas(pre.listPrecio[7], "Armas", "Manamune", 0, pre.listReviews[7], 0, 0, pre.listReviews[7]/3, pre.listReviews[7]/5);
-     this.weapon8 = new Armas(pre.listPrecio[8], "Armas", "Huracán", 0, pre.listReviews[8], 0, 0, pre.listReviews[8]/3, pre.listReviews[8]/5);
+     this.weapon3 = new Armas(pre.listPrecio[3], "Armas", "Statikk", 0, pre.listReviews[3], 0, pre.listReviews[3]/3, 0, pre.listReviews[3]/5);
+     this.weapon4 = new Armas(pre.listPrecio[4], "Armas", "Guinsoo", 0, pre.listReviews[4], 0, pre.listReviews[4]/3, 0, pre.listReviews[4]/5);
+     this.weapon5 = new Armas(pre.listPrecio[5], "Armas", "Espadón", 0, pre.listReviews[5], 0,  pre.listReviews[5]/3, 0, 0);
+     this.weapon6 = new Armas(pre.listPrecio[6], "Armas", "Rabadon", 0, pre.listReviews[6], 0,  pre.listReviews[6]/3, 0, pre.listReviews[6]/5);
+     this.weapon7 = new Armas(pre.listPrecio[7], "Armas", "Manamune", 0, pre.listReviews[7], 0, pre.listReviews[7]/3, 0, pre.listReviews[7]/5);
+     this.weapon8 = new Armas(pre.listPrecio[8], "Armas", "Huracán", 0, pre.listReviews[8], 0, pre.listReviews[8]/3,  0,pre.listReviews[8]/5);
      
     // ARMADURA
 
-     this.armor0 = new Armadura(pre.listPrecio[9], "Armadura", "Cotas", 0, 0, pre.listReviews[9], 0, pre.listReviews[9]/4, pre.listReviews[9]/10, "Chaleco con espinas");
-     this.armor1 = new Armadura(pre.listPrecio[10], "Armadura", "Warmog", 0, 0, pre.listReviews[10], 0, pre.listReviews[10]/4, pre.listReviews[10]/10, "Chaleco grueso");
-     this.armor2 = new Armadura(pre.listPrecio[11], "Armadura", "Caperuza", 0, 0, pre.listReviews[11], 0, pre.listReviews[11]/4, pre.listReviews[11]/10, "Casco de cuero");
-     this.armor3 = new Armadura(pre.listPrecio[12], "Armadura", "Segahuesos", 0, 0, pre.listReviews[12], 0, pre.listReviews[12]/4, pre.listReviews[12]/10, "Casco de huesos");
-     this.armor4 = new Armadura(pre.listPrecio[13], "Armadura", "Botas", 0, 0, pre.listReviews[13], 0, pre.listReviews[13]/4, pre.listReviews[13]/10, "Botas normales");
-     this.armor5 = new Armadura(pre.listPrecio[14], "Armadura", "Escarpe", 0, 0, pre.listReviews[14], 0, pre.listReviews[14]/4, pre.listReviews[14]/10, "Botas de acero");
-     this.armor6 = new Armadura(pre.listPrecio[15], "Armadura", "Leeroy ", 0, 0, pre.listReviews[15], 0, pre.listReviews[15]/4, pre.listReviews[15]/10, "Pantalon");
-     this.armor7 = new Armadura(pre.listPrecio[16], "Armadura", "Jenkins", 0, 0, pre.listReviews[16], 0, pre.listReviews[16]/4, pre.listReviews[16]/10, "Pantalon");
-
+     this.armor0 = new Armadura(pre.listPrecio[9], "Armadura", "Cotas", 0, 0, pre.listReviews[9],  pre.listReviews[9]/4, 0, pre.listReviews[9]/10, "Chaleco con espinas");
+     this.armor1 = new Armadura(pre.listPrecio[10], "Armadura", "Warmog", 0, 0, pre.listReviews[10], pre.listReviews[10]/4, 0, pre.listReviews[10]/10, "Chaleco grueso");
+     this.armor2 = new Armadura(pre.listPrecio[11], "Armadura", "Caperuza", 0, 0, pre.listReviews[11],  pre.listReviews[11]/4, 0, pre.listReviews[11]/10, "Casco de cuero");
+     this.armor3 = new Armadura(pre.listPrecio[12], "Armadura", "Segahuesos", 0, 0, pre.listReviews[12],  pre.listReviews[12]/4, 0, pre.listReviews[12]/10, "Casco de huesos");
+     this.armor4 = new Armadura(pre.listPrecio[13], "Armadura", "Botas", 0, 0, pre.listReviews[13],  pre.listReviews[13]/4, 0, pre.listReviews[13]/10, "Botas normales");
+     this.armor5 = new Armadura(pre.listPrecio[14], "Armadura", "Escarpe", 0, 0, pre.listReviews[14], pre.listReviews[14]/4, 0, pre.listReviews[14]/10, "Botas de acero");
+     this.armor6 = new Armadura(pre.listPrecio[15], "Armadura", "Leeroy ", 0, 0, pre.listReviews[15], pre.listReviews[15]/4, 0, pre.listReviews[15]/10, "Pantalon");
+     this.armor7 = new Armadura(pre.listPrecio[16], "Armadura", "Jenkins", 0, 0, pre.listReviews[16],pre.listReviews[16]/4, 0,  pre.listReviews[16]/10, "Pantalon");
+                           
     // CONSUMIBLE
 
      this.potion0 = new Consumibles(pre.listPrecio[17], "Consumibles", "Pocion pequeña", pre.listReviews[17]/3, 0, 0, 0, 0, 0);
