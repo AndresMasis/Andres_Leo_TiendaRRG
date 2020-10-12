@@ -95,11 +95,7 @@ public class Personaje {
     // Equipar
     public void equipar(Items objeto, String procedencia) {
         // Restricciones
-<<<<<<< Updated upstream
-        if (objeto == null || objeto.cantidad_posee == 0) {
-=======
     if (objeto == null) {
->>>>>>> Stashed changes
             // No se ha seleccionado ningun objeto o ya no se posee
             JOptionPane.showMessageDialog(null, "ERROR"
                     + "\nNo has seleccionado ningun objeto.");
