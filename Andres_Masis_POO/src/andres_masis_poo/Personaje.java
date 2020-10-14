@@ -101,8 +101,7 @@ public class Personaje {
                     + "\nNo has seleccionado ningun objeto.");
 
         } else if (procedencia != "inventario") {
-            // Se selecciono desde tienda
-            this.comprar(objeto, "tienda");
+            // Se selecciono desde la tienda
             this.equipar(objeto, "inventario");
             
         } else if(objeto.categoria.equals("Consumibles")){
