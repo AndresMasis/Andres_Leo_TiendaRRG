@@ -95,20 +95,12 @@ public class Personaje {
     // Equipar
     public void equipar(Items objeto, String procedencia) {
         // Restricciones
-<<<<<<< Updated upstream
-        if (objeto == null || objeto.cantidad_posee == 0) {
-=======
+
     if (objeto == null) {
->>>>>>> Stashed changes
             // No se ha seleccionado ningun objeto o ya no se posee
             JOptionPane.showMessageDialog(null, "ERROR"
                     + "\nNo has seleccionado ningun objeto.");
 
-        } else if (procedencia != "inventario") {
-            // Se selecciono desde tienda
-            this.comprar(objeto, "tienda");
-            this.equipar(objeto, "inventario");
-            
         } else if(objeto.categoria.equals("Consumibles")){
             // Los consumibles no se pueden equipar 
             JOptionPane.showMessageDialog(null, "ERROR"
@@ -119,7 +111,12 @@ public class Personaje {
             JOptionPane.showMessageDialog(null, "ERROR"
                     + "\nYa tienes equipado ese objeto");
 
-        } else {
+        } else if (procedencia != "inventario") {
+            // Se selecciono desde tienda
+            this.comprar(objeto, "tienda");
+            this.equipar(objeto, "inventario");
+            
+        }else {
             // Valido, se equipo
             objeto.setEquipado(true);
             asignarStats(objeto);
